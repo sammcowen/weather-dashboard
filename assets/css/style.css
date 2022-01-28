@@ -8,16 +8,27 @@
     align-items: center;
     border-bottom: 5px solid deeppink;
 }
-.container {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    border-bottom: 2px solid #ffaf42;
-    box-sizing: border-box;
 
+.dashboard {
+    display:grid;
+    width: 100%;
+    grid-template-columns: 1fr 3fr;
+    padding: 2rem;
+    gap: 2rem;
 
 }
 
+
+.infoContainer {
+    display:grid;
+    width:100%;
+    grid-template-rows: 1fr 1fr;
+    
+}
+.currentContainer {
+    border: 2px solid black;
+    border-radius: 5px;
+}
 
 .search {
     justify-content: center;
@@ -26,11 +37,11 @@
 ul {
     list-style: none;
 }
-.container2 {
-    border:3px solid darkslategray;
-    height: 100px;
-    width: 300px;
+ul li {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size:16px;
 }
+
 .uvLow {
     background-color: limegreen;
     border-radius: 10px;
