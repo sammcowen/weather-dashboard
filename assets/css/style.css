@@ -2,34 +2,46 @@
     display:flex;
     flex-direction:row;
     justify-content: center;
-    background-color: greenyellow;
-    color:hotpink;
+    background-color: #ffaf42;
+    color:black;
     height: 100px;
     align-items: center;
+    border-bottom: 5px solid deeppink;
 }
 .container {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    border-bottom: 2px solid #ffaf42;
+    box-sizing: border-box;
+
 
 }
+
+
 .search {
     justify-content: center;
     align-self: row;
 }
+ul {
+    list-style: none;
+}
 .container2 {
-    border:3px solid lightseagreen;
+    border:3px solid darkslategray;
     height: 100px;
     width: 300px;
 }
 .uvLow {
     background-color: limegreen;
+    border-radius: 10px;
 }
 
 .uvMod {
     background: yellow;
+    border-radius: 10px;
 }
 
 .uvSevere {
     background-color: red;
+    border-radius: 10px;
 }

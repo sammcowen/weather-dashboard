@@ -12,18 +12,21 @@
     <div class="header">
         <h1>Weather Dashboard</h1>
     </div>
-    <div class="container">
-       
+
+    <div class="container">  
         <div class="row">
-            <div class="col-4 justify-content-start">
-            <h3 class="search">Search for a City:</h3>
-            </div>
-            <input id="input"class="form-control form-control-md" type="text" placeholder="Tampa" aria-label=".form-control-md example">
-            <div class="d-grid gap-2 col-4">
-                <button class="btn btn-primary" type="button">Search</button>
-              </div>
+        <div class="mb-3 col-3">
+            <h3>Search for City</h3>
+            <input type="text" class="form-control form-control lg" id="input" placeholder="Tampa">
+            <div class="row">
+            <div class="col-3">
+                <button class="btn btn-dark" type="button">Search</button>
+        </div>
+        </div>
+        </div>
         </div>
     </div>
+
     <div class="container2">
         <h2 id="currentCity"></h2>
         <h2 id="currentDate"></h2>
