@@ -42,6 +42,15 @@ function fetchWeather(lat, lon) {
         const humid = data.current.humidity;
         const windSpeed = data.current.wind_speed;
         const uvi = data.current.uvi;
+
+        // checks uvi and sets a bg color to indicate favorable,moderate or severe
+        if(uvi.value < 3){
+            $("#li4").addClass("uvLow");
+        } else if (uvi.value >= 8) {
+            $('#li4').addClass("uvSevere");
+        } else {
+            $("#li4").addClass("uvMod");
+        }
         $("#li1").text("Temp: "+ temp);
         $("#li2").text("Humidity: "+ humid);
         $("#li3").text("Wind Speed: "+ windSpeed);
@@ -56,7 +65,7 @@ function fetchWeather(lat, lon) {
 
 // }
 
-//takes user input and displays 
+//takes user input and sets current weather and forecast to match that city
 function search() {
     var city = inputEl.value.trim();
     //console.log('city', city);
@@ -70,7 +79,7 @@ function search() {
       
 };
 
-// add event listeners
+// event listeners
 buttonEl.addEventListener('click', search);
 
 

@@ -22,3 +22,14 @@
     height: 100px;
     width: 300px;
 }
+.uvLow {
+    background-color: limegreen;
+}
+
+.uvMod {
+    background: yellow;
+}
+
+.uvSevere {
+    background-color: red;
+}
