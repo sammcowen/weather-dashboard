@@ -8,7 +8,8 @@ const currentCity = document.querySelector('#currentCity');
 const rootApiUrl = 'https://api.openweathermap.org';
 const myApiKey = '94bb7586d2b9a5b650867004d68a2e5d';
 const currentDate = moment().format('ll');
-let searchHistoryList =[];
+const searchHistoryList =[];
+
 
 //functions
 function fetchCoord(city) {
@@ -35,13 +36,15 @@ function fetchWeather(lat, lon) {
     fetch(apiUrl)
     .then (function(response) {
         return response.json();
-    })
+    })  
     .then(function(data) {
         console.log(data);
         const temp =data.current.temp;
         const humid = data.current.humidity;
         const windSpeed = data.current.wind_speed;
         const uvi = data.current.uvi;
+        const iconCode = data.current.weather[0].icon;
+        const iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`;
 
         // checks uvi and sets a bg color to indicate favorable,moderate or severe
         if(uvi.value < 3){
@@ -51,19 +54,19 @@ function fetchWeather(lat, lon) {
         } else {
             $("#li4").addClass("uvMod");
         }
+        //displays current weather icon, temp, humid, wind, and uvi
+        $('#currentIcon').append(`<img src=${iconUrl}>`);
         $("#li1").text("Temp: "+ temp);
         $("#li2").text("Humidity: "+ humid);
         $("#li3").text("Wind Speed: "+ windSpeed);
         $("#li4").text("UVI: "+ uvi);
+    
     })
     
-//renderWeather();
+
 }
 
-// function renderWeather(temp, humid, windSpeed, uvi) {
-    
 
-// }
 
 //takes user input and sets current weather and forecast to match that city
 function search() {
