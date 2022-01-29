@@ -27,13 +27,10 @@ function fetchCoord(city) {
 
             fetchWeather(lat, lon);
             fetchForecast(lat, lon);
-
-
         })
-
 };
 function fetchWeather(lat, lon) {
-    let apiUrl = `${rootApiUrl}/data/2.5/onecall?lat=${lat}&lon=${lon}$units=imperial&appid=${myApiKey}`;
+    let apiUrl = `${rootApiUrl}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${myApiKey}`;
     fetch(apiUrl)
         .then(function (response) {
             return response.json();
@@ -57,32 +54,50 @@ function fetchWeather(lat, lon) {
             }
             //displays current weather icon, temp, humid, wind, and uvi
             $('#currentIcon').append(`<img src=${iconUrl}>`);
-            $("#li1").text("Temp: " + temp);
-            $("#li2").text("Humidity: " + humid);
-            $("#li3").text("Wind Speed: " + windSpeed);
+            $("#li1").text("Temp: " + temp + " °F");
+            $("#li2").text("Humidity: " + humid + "%");
+            $("#li3").text("Wind Speed: " + windSpeed + "MPH");
             $("#li4").text("UVI: " + uvi);
-            //displays 5 day forecast of weather 
-
-
         })
-
-
 }
 
-// function fetchForecast(lat, lon) {
-//     let apiUrl = `${rootApiUrl}/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${myApiKey}`;
-//     fetch(apiUrl)
-//         .then(function (response) {
-//             return response.json();
-//         })
-//         .then(function (data) {
-//             console.log(data.daily[0].temp);
-//             console.log(data.daily[0].wind_speed);
-//             console.log(data.daily[0].humidity);
-//         })
-// }
+function fetchForecast(lat, lon) {
+    let apiUrl = `${rootApiUrl}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${myApiKey}`;
+    fetch(apiUrl)
+        .then(function (response) {
+            return response.json();
+        })
+        .then(function (data) {
+            $('#forecastContainer').empty();
+            for (let i = 0; i < 5; i++) {
+                var cityInfo = {
+                    date: data.daily[i].dt,
+                    icon: data.daily[i].weather[0].icon,
+                    temp: data.daily[i].temp.day,
+                    wind: data.daily[i].wind_speed,
+                    humid: data.daily[i].humidity,
+                };
+                var currDate = moment.unix(cityInfo.date).format("MM/DD/YYYY");
+                var currUrl = `<img src="https://openweathermap.org/img/w/${cityInfo.icon}.png">`;
 
+                var futureCard = $(`
+                <div class="pl-3">
+                    <div class="card pl-3 pt-3 mb-3 cardSamm" style="width: 12rem; margin: 5px;">
+                        <div class="card-body cardSamm">
+                            <h5>${currDate}</h5>
+                            <p>${currUrl}</p>
+                            <p>Temp: ${cityInfo.temp} °F</p>
+                            <p>Wind: ${cityInfo.wind} MPH </p>
+                            <p>Humidity: ${cityInfo.humid}\%</p>
 
+                        </div>
+                    </div>
+                <div>
+            `);
+                $("#forecastContainer").append(futureCard);
+            }
+        });
+}
 
 //takes user input and sets current weather and forecast to match that city
 function search() {

@@ -23,11 +23,31 @@
     display:grid;
     width:100%;
     grid-template-rows: 1fr 1fr;
+    background-color: white;
     
 }
 .currentContainer {
+    display:flex;
+    flex-direction:row;
+    justify-content: space-evenly;
     border: 2px solid black;
     border-radius: 5px;
+}
+
+.forecastContainer {
+    display:flex;
+    flex-direction:row;
+    padding:30px;
+    justify-content: center;
+    align-items: flex-end;
+    
+
+}
+#forecastContainer {
+    display:flex;
+    flex-direction:row;
+    padding:15px;
+
 }
 
 .search {
@@ -45,14 +65,24 @@ ul li {
 .uvLow {
     background-color: limegreen;
     border-radius: 10px;
+    width: 100%;
 }
 
 .uvMod {
     background: yellow;
     border-radius: 10px;
+    width:100%;
 }
 
 .uvSevere {
     background-color: red;
     border-radius: 10px;
+    width: 100%;
+}
+.cardSamm {
+    background-color: #ffaf42;
+    color:black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    box-shadow: 5px 5px black;
+    border-radius: 5px;
 }
