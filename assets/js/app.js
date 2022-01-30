@@ -82,15 +82,15 @@ function fetchForecast(lat, lon) {
                 var currUrl = `<img src="https://openweathermap.org/img/w/${cityInfo.icon}.png">`;
 
                 var futureCard = $(`
-                        <div class="card pl-3 pt-3 mb-3">
-                        <div class="card-body cardSamm">
+                       
+                        <div class="card card-body cardSamm">
                             <h5>${currDate}</h5>
                             <p>${currUrl}</p>
                             <p>Temp: ${cityInfo.temp} °F</p>
                             <p>Wind: ${cityInfo.wind} MPH </p>
                             <p>Humidity: ${cityInfo.humid}\%</p>
                     </div>
-                <div>
+                
             `);
                 $(".forecastContainer").append(futureCard);
             }
@@ -111,9 +111,6 @@ function search() {
                btn.setAttribute('searched-city', city);
                btn.textContent= city;
         $('#searchHistory').append(btn);
-        //var searchedCity = $(`
-           //<li><button class="list-group col-12">${city}</button></li>`);   
-        //$("#searchHistory").append(searchedCity);
     };
 
     localStorage.setItem("city", JSON.stringify(searchHistoryList));
