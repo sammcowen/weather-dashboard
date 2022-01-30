@@ -5,9 +5,11 @@
     background-color: #ffaf42;
     color:black;
     height: 100px;
+    width: 100%;
     align-items: center;
     border-bottom: 5px solid deeppink;
 }
+
 
 .dashboard {
     display:grid;
@@ -26,28 +28,36 @@
     background-color: white;
     
 }
-.currentContainer {
+#currentContainer {
     display:flex;
     flex-direction:row;
     justify-content: space-evenly;
     border: 2px solid black;
     border-radius: 5px;
 }
+#cityStats {
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
 
-.forecastContainer {
+}
+.forecastHeader {
+    display:flex;
+    justify-content: center;
+}
+
+ .forecastContainer {
     display:flex;
     flex-direction:row;
     padding:30px;
     justify-content: center;
-    align-items: flex-end;
+    align-items: flex-end; 
     
 
-}
-#forecastContainer {
-    display:flex;
-    flex-direction:row;
-    padding:15px;
-
+ } 
+#searchHistory {
+    border-top: 5px solid deeppink;
+    padding:5px;
 }
 
 .search {
@@ -85,4 +95,9 @@ ul li {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     box-shadow: 5px 5px black;
     border-radius: 5px;
+}
+.list-group button {
+    background-color: #ffaf42;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color:black;
 }

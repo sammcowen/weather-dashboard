@@ -2,6 +2,7 @@
 const buttonEl = document.querySelector(".btn");
 const inputEl = document.querySelector('#input');
 const currentCity = document.querySelector('#currentCity');
+const searchEl = document.querySelector(".list-group");
 
 
 // variables
@@ -56,7 +57,7 @@ function fetchWeather(lat, lon) {
             $('#currentIcon').append(`<img src=${iconUrl}>`);
             $("#li1").text("Temp: " + temp + " °F");
             $("#li2").text("Humidity: " + humid + "%");
-            $("#li3").text("Wind Speed: " + windSpeed + "MPH");
+            $("#li3").text("Wind Speed: " + windSpeed + " MPH");
             $("#li4").text("UVI: " + uvi);
         })
 }
@@ -94,7 +95,7 @@ function fetchForecast(lat, lon) {
                     </div>
                 <div>
             `);
-                $("#forecastContainer").append(futureCard);
+                $(".forecastContainer").append(futureCard);
             }
         });
 }
@@ -102,18 +103,31 @@ function fetchForecast(lat, lon) {
 //takes user input and sets current weather and forecast to match that city
 function search() {
     var city = inputEl.value.trim();
-    //console.log('city', city);
     fetchCoord(city);
     $("#currentCity").text(city);
     $("#currentDate").text(currentDate);
+    if (!searchHistoryList.includes(city)) {
+        searchHistoryList.push(city);
+        var searchedCity = $(`
+           <li><button class="list-group col-12">${city}</button></li>`);   
+        $("#searchHistory").append(searchedCity);
+    };
+
     localStorage.setItem("city", JSON.stringify(searchHistoryList));
     console.log(searchHistoryList);
-
-
-
 };
+
+
+
+
+
+function test() {
+
+    console.log('yee');
+};
+
 
 // event listeners
 buttonEl.addEventListener('click', search);
-
+searchEl.addEventListener('click', test);
 
