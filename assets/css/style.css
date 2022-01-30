@@ -8,17 +8,15 @@
     width: 100%;
     align-items: center;
     border-bottom: 5px solid deeppink;
+    font-family: 'Open Sans', sans-serif;
 }
 
-
-.dashboard {
-    display:grid;
-    width: 100%;
-    grid-template-columns: 1fr 3fr;
-    padding: 2rem;
-    gap: 2rem;
-
+.btn {
+    background-color: black;
+    color:white;
+    font-family: 'Open Sans', sans-serif;
 }
+
 
 
 .infoContainer {
@@ -38,7 +36,9 @@
 #cityStats {
     display:flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bolder;
 
 }
 .forecastHeader {
@@ -57,7 +57,7 @@
  } 
 #searchHistory {
     border-top: 5px solid deeppink;
-    padding:5px;
+    padding:10px;
 }
 
 .search {
@@ -68,7 +68,7 @@ ul {
     list-style: none;
 }
 ul li {
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family:'Open Sans', sans-serif;;
     font-size:16px;
 }
 
@@ -92,14 +92,15 @@ ul li {
 .cardSamm {
     background-color: #ffaf42;
     color:black;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-family: 'Open Sans', sans-serif;
     box-shadow: 5px 5px black;
     border-radius: 5px;
-    width: 12rem; 
+    width: 10rem; 
     margin: 5px;
+
 }
 .list-group button {
-    background-color: #ffaf42;
-    font-family:Verdana, Geneva, Tahoma, sans-serif;
-    color:black;
+    background-color: black;
+    font-family:'Open Sans', sans-serif;
+    color:white;
 }

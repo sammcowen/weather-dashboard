@@ -54,7 +54,7 @@ function fetchWeather(lat, lon) {
                 $("#li4").addClass("uvMod");
             }
             //displays current weather icon, temp, humid, wind, and uvi
-            $('#currentIcon').append(`<img src=${iconUrl}>`);
+            $('#currentIcon').html(`<img src=${iconUrl}>`);
             $("#li1").text("Temp: " + temp + " °F");
             $("#li2").text("Humidity: " + humid + "%");
             $("#li3").text("Wind Speed: " + windSpeed + " MPH");
