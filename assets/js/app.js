@@ -105,9 +105,15 @@ function search() {
     $("#currentDate").text(currentDate);
     if (!searchHistoryList.includes(city)) {
         searchHistoryList.push(city);
-        var searchedCity = $(`
-           <li><button class="list-group col-12">${city}</button></li>`);   
-        $("#searchHistory").append(searchedCity);
+        var btn = document.createElement('button');
+        btn.classList.add('list-group');
+        btn.classList.add('col-12');
+               btn.setAttribute('searched-city', city);
+               btn.textContent= city;
+        $('#searchHistory').append(btn);
+        //var searchedCity = $(`
+           //<li><button class="list-group col-12">${city}</button></li>`);   
+        //$("#searchHistory").append(searchedCity);
     };
 
     localStorage.setItem("city", JSON.stringify(searchHistoryList));
@@ -117,16 +123,20 @@ function search() {
 
 //trying to add a function to run through the program again using localstorage values
 
-function test() {
-$(document).on("click", "list-group", function() {
-    const listCity = JSON.parse(localStorage.getItem('city'));
-    fetchCoord(listCity);
-
-    console.log('yee');
-});
+function test(e) {
+    var btn= e.target;
+    var searchItem = btn.getAttribute("searched-city")
+    console.log(searchItem);
+    fetchCoord(searchItem);
+    $("#currentCity").text(searchItem);
+    $("#currentDate").text(currentDate);
 }
+
+
+
 
 // event listeners
 buttonEl.addEventListener('click', search);
 searchEl.addEventListener('click', test);
+
 
