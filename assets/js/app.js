@@ -1,14 +1,15 @@
 // element references
-const buttonEl = document.querySelector(".btn");
+const buttonEl = document.querySelector(".click");
 const inputEl = document.querySelector('#input');
 const currentCity = document.querySelector('#currentCity');
 const searchEl = document.querySelector(".list-group");
 
 
+
 // variables
 const rootApiUrl = 'https://api.openweathermap.org';
 const myApiKey = '94bb7586d2b9a5b650867004d68a2e5d';
-const currentDate = moment().format('ll');
+const currentDate = moment().format('l');
 const searchHistoryList = [];
 
 
@@ -93,6 +94,7 @@ function fetchForecast(lat, lon) {
                 
             `);
                 $(".forecastContainer").append(futureCard);
+               
             }
         });
 }
@@ -108,8 +110,8 @@ function search() {
         var btn = document.createElement('button');
         btn.classList.add('list-group');
         btn.classList.add('col-12');
-               btn.setAttribute('searched-city', city);
-               btn.textContent= city;
+        btn.setAttribute('searched-city', city);
+        btn.textContent = city;
         $('#searchHistory').append(btn);
     };
 
@@ -120,8 +122,8 @@ function search() {
 
 //trying to add a function to run through the program again using localstorage values
 
-function test(e) {
-    var btn= e.target;
+function searchAgain(e) {
+    var btn = e.target;
     var searchItem = btn.getAttribute("searched-city")
     console.log(searchItem);
     fetchCoord(searchItem);
@@ -134,6 +136,6 @@ function test(e) {
 
 // event listeners
 buttonEl.addEventListener('click', search);
-searchEl.addEventListener('click', test);
+searchEl.addEventListener('click', searchAgain);
 
 

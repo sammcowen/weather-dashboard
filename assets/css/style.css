@@ -11,13 +11,18 @@
     font-family: 'Open Sans', sans-serif;
 }
 
-.btn {
-    background-color: black;
-    color:white;
+.click {
+    background-color: #ffaf42;
+    color:black;
     font-family: 'Open Sans', sans-serif;
+    border-bottom: 2px solid black;
 }
 
 
+#searchContainer {
+border-right:2px solid black;
+margin-top: 15px;
+}
 
 .infoContainer {
     display:grid;
@@ -26,20 +31,24 @@
     background-color: white;
     
 }
-#currentContainer {
+.currentContainer {
     display:flex;
     flex-direction:row;
     justify-content: space-evenly;
     border: 2px solid black;
-    border-radius: 5px;
+    margin: 20px;
+    padding: 5px;
+    
 }
 #cityStats {
     display:flex;
     flex-direction: row;
     justify-content: space-evenly;
-    font-family: 'Open Sans', sans-serif;
     font-weight: bolder;
 
+}
+.cityStats2 {
+    align-self:flex-start;
 }
 .forecastHeader {
     display:flex;
@@ -53,10 +62,12 @@
     justify-content: center;
     align-items: flex-end; 
     
-
  } 
+ .forecastTitle {
+     align-self:center;
+     font-family: 'Open Sans', sans-serif;;
+ }
 #searchHistory {
-    border-top: 5px solid deeppink;
     padding:10px;
 }
 
@@ -103,4 +114,5 @@ ul li {
     background-color: black;
     font-family:'Open Sans', sans-serif;
     color:white;
+    
 }
