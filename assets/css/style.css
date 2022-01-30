@@ -95,6 +95,8 @@ ul li {
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     box-shadow: 5px 5px black;
     border-radius: 5px;
+    width: 12rem; 
+    margin: 5px;
 }
 .list-group button {
     background-color: #ffaf42;

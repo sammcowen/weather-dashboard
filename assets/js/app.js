@@ -69,7 +69,7 @@ function fetchForecast(lat, lon) {
             return response.json();
         })
         .then(function (data) {
-            $('#forecastContainer').empty();
+            $('.forecastContainer').empty();
             for (let i = 0; i < 5; i++) {
                 var cityInfo = {
                     date: data.daily[i].dt,
@@ -82,16 +82,13 @@ function fetchForecast(lat, lon) {
                 var currUrl = `<img src="https://openweathermap.org/img/w/${cityInfo.icon}.png">`;
 
                 var futureCard = $(`
-                <div class="pl-3">
-                    <div class="card pl-3 pt-3 mb-3 cardSamm" style="width: 12rem; margin: 5px;">
+                        <div class="card pl-3 pt-3 mb-3">
                         <div class="card-body cardSamm">
                             <h5>${currDate}</h5>
                             <p>${currUrl}</p>
                             <p>Temp: ${cityInfo.temp} °F</p>
                             <p>Wind: ${cityInfo.wind} MPH </p>
                             <p>Humidity: ${cityInfo.humid}\%</p>
-
-                        </div>
                     </div>
                 <div>
             `);
@@ -118,14 +115,16 @@ function search() {
 };
 
 
-
-
+//trying to add a function to run through the program again using localstorage values
 
 function test() {
+$(document).on("click", "list-group", function() {
+    const listCity = JSON.parse(localStorage.getItem('city'));
+    fetchCoord(listCity);
 
     console.log('yee');
-};
-
+});
+}
 
 // event listeners
 buttonEl.addEventListener('click', search);
