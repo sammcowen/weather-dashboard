@@ -129,15 +129,22 @@ function searchAgain(e) {
     var searchItem = btn.getAttribute("searched-city")
     console.log(searchItem);
     fetchCoord(searchItem);
+    $(".currentContainer").show();
     $("#currentCity").text(searchItem);
     $("#currentDate").text(currentDate);
+    
 }
 function persistHistory() {
-    for(let i=0;i<searchHistoryList.length;i++) {
+    $(".currentContainer").hide();
+    $("#currentCity").text(city);
+    $("#currentDate").text(currentDate);
+   
+for(let i=0;i<searchHistoryList.length;i++) {
         var city = searchHistoryList[i];
         var btn = document.createElement('button');
         btn.classList.add('list-group');
         btn.classList.add('col-12');
+        btn.classList.add("btn");
         btn.setAttribute('searched-city', city);
         btn.textContent = city;
         $('#searchHistory').append(btn);

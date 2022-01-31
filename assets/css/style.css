@@ -18,7 +18,9 @@
     border-bottom: 2px solid black;
     border-radius: 0.25rem;
 }
-
+#fiveday {
+    padding-left:450px;
+}
 
 #searchContainer {
 border-right:2px solid black;
@@ -26,13 +28,6 @@ margin-top: 15px;
 padding: 0 24px;
 }
 
-.infoContainer {
-    display:grid;
-    width:100%;
-    grid-template-rows: 1fr 1fr;
-    background-color: white;
-    
-}
 .currentContainer {
     display:flex;
     flex-direction:row;
@@ -66,19 +61,7 @@ padding: 0 24px;
     align-items: flex-end; 
     
  } 
- .forecastTitle {
-     align-self:center;
-     font-family: 'Open Sans', sans-serif;;
- }
-#searchHistory {
-    /* padding:10px; */
-    
-}
-
-.search {
-    justify-content: center;
-    align-self: row;
-}
+ 
 ul {
     list-style: none;
 }
@@ -112,7 +95,6 @@ ul li {
     border-radius: 5px;
     width: 10rem; 
     margin: 5px;
-
 }
 .list-group button {
     background-color: black;
@@ -121,5 +103,22 @@ ul li {
     padding: 8px 12px;
     justify-content: center;
     margin-top: 5px;
-    text-align: center;
+}
+@media  screen and(min-width:768px) {
+    #fiveday {
+        padding-left: px;
+    }
+    
+}
+@media screen and(min-width:480px) {
+    #fiveDay {
+        padding-left:50px;
+
+    }
+    .click {
+        font-size: 14px;
+    }
+    .list-group button {
+        font-size: 14px;
+    }
 }
