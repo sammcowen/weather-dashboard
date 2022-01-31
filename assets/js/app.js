@@ -11,8 +11,7 @@ const searchEl = document.querySelector(".list-group");
 const rootApiUrl = 'https://api.openweathermap.org';
 const myApiKey = '94bb7586d2b9a5b650867004d68a2e5d';
 const currentDate = moment().format('l');
-const searchHistoryList = [];
-
+const searchHistoryList =localStorage.getItem("city")?JSON.parse(localStorage.getItem("city")):[];
 
 //functions
 function fetchCoord(city) {
@@ -133,17 +132,15 @@ function searchAgain(e) {
     $("#currentDate").text(currentDate);
 }
 function persistHistory() {
-    localStorage.getItem(searchHistoryList);
-    console.log(searchHistoryList);
-//      for(i=0;i<searchHistoryList.length;i++){
-
-// var btn = document.createElement('button');
-//         btn.classList.add('list-group');
-//         btn.classList.add('col-12');
-//         btn.setAttribute('searched-city', city);
-//         btn.textContent = city;
-//         $('#searchHistory').append(btn);
-//     }
+    for(let i=0;i<searchHistoryList.length;i++) {
+        var city = searchHistoryList[i];
+        var btn = document.createElement('button');
+        btn.classList.add('list-group');
+        btn.classList.add('col-12');
+        btn.setAttribute('searched-city', city);
+        btn.textContent = city;
+        $('#searchHistory').append(btn);
+    };
 }
 
 
@@ -151,4 +148,4 @@ function persistHistory() {
 buttonEl.addEventListener('click', search);
 searchEl.addEventListener('click', searchAgain);
 
-
+persistHistory();
