@@ -104,6 +104,7 @@ function fetchForecast(lat, lon) {
 function search() {
     var city = inputEl.value.trim();
     fetchCoord(city);
+    $('.currentContainer').show();
     $("#currentCity").text(city);
     $("#currentDate").text(currentDate);
     if (!searchHistoryList.includes(city)) {
@@ -121,7 +122,7 @@ function search() {
 };
 
 
-//trying to add a function to run through the program again using localstorage values
+
 
 function searchAgain(e) {
     var btn = e.target;
