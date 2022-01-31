@@ -6,6 +6,7 @@ const searchEl = document.querySelector(".list-group");
 
 
 
+
 // variables
 const rootApiUrl = 'https://api.openweathermap.org';
 const myApiKey = '94bb7586d2b9a5b650867004d68a2e5d';
@@ -29,6 +30,7 @@ function fetchCoord(city) {
 
             fetchWeather(lat, lon);
             fetchForecast(lat, lon);
+    
         })
 };
 function fetchWeather(lat, lon) {
@@ -130,8 +132,19 @@ function searchAgain(e) {
     $("#currentCity").text(searchItem);
     $("#currentDate").text(currentDate);
 }
+function persistHistory() {
+    localStorage.getItem(searchHistoryList);
+    console.log(searchHistoryList);
+//      for(i=0;i<searchHistoryList.length;i++){
 
-
+// var btn = document.createElement('button');
+//         btn.classList.add('list-group');
+//         btn.classList.add('col-12');
+//         btn.setAttribute('searched-city', city);
+//         btn.textContent = city;
+//         $('#searchHistory').append(btn);
+//     }
+}
 
 
 // event listeners
