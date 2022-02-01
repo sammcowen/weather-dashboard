@@ -18,7 +18,7 @@
     border-bottom: 2px solid black;
     border-radius: 0.25rem;
 }
-#fiveday {
+.fiveday {
     padding-left:450px;
 }
 
@@ -26,8 +26,13 @@
 border-right:2px solid black;
 margin-top: 15px;
 padding: 0 24px;
-}
 
+}
+.weathercontainer {
+    display:flex;
+    justify-content: center;
+    flex-direction: column;
+}
 .currentContainer {
     display:flex;
     flex-direction:row;
@@ -104,21 +109,18 @@ ul li {
     justify-content: center;
     margin-top: 5px;
 }
-/* @media  screen and(min-width:768px) {
-    #fiveday {
-        padding-left: px;
-    }
+@media screen and(max-width:768px) {
+  .fiveday {
+      display:none;
+  }
     
 }
-@media screen and(min-width:480px) {
-    #fiveDay {
-        padding-left:50px;
-
-    }
-    .click {
-        font-size: 14px;
-    }
+@media  screen and(max-width:480px) {
     .list-group button {
         font-size: 14px;
-    }
-} */
+         }
+         .fiveday {
+             display: none;
+         }
+
+}
