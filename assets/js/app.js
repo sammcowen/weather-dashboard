@@ -144,7 +144,6 @@ for(let i=0;i<searchHistoryList.length;i++) {
         var btn = document.createElement('button');
         btn.classList.add('list-group');
         btn.classList.add('col-12');
-        btn.classList.add("btn");
         btn.setAttribute('searched-city', city);
         btn.textContent = city;
         $('#searchHistory').append(btn);

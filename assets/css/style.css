@@ -19,13 +19,17 @@
     border-radius: 0.25rem;
 }
 .fiveday {
-    padding-left:450px;
+    margin:0 auto;
+    font-family:'Open Sans', sans-serif;
+    font-weight:bold;
+    font-size: 20px;
 }
 
 #searchContainer {
 border-right:2px solid black;
 margin-top: 15px;
 padding: 0 24px;
+text-align: center;
 
 }
 .weathercontainer {
@@ -98,7 +102,8 @@ ul li {
     font-family: 'Open Sans', sans-serif;
     box-shadow: 5px 5px black;
     border-radius: 5px;
-    width: 10rem; 
+    height: 15rem;
+    max-width: 12rem; 
     margin: 5px;
 }
 .list-group button {
@@ -108,19 +113,6 @@ ul li {
     padding: 8px 12px;
     justify-content: center;
     margin-top: 5px;
-}
-@media screen and(max-width:768px) {
-  .fiveday {
-      display:none;
-  }
-    
-}
-@media  screen and(max-width:480px) {
-    .list-group button {
-        font-size: 14px;
-         }
-         .fiveday {
-             display: none;
-         }
-
+    font-size: 14px;
+    text-align:center;
 }
