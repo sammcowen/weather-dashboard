@@ -27,7 +27,7 @@ function fetchCoord(city) {
             console.log('lat', data[0].lat);
             console.log('lon', data[0].lon);
         
-            var city = inputEl.value.trim();
+            // var city = inputEl.value.trim();
             $('.currentContainer').show();
             $("#currentCity").text(city);
             $("#currentDate").text(currentDate);
@@ -156,10 +156,11 @@ function searchAgain(e) {
     var btn = e.target;
     var searchItem = btn.getAttribute("searched-city")
     console.log(searchItem);
+    fetchCoord(searchItem);
       $(".currentContainer").show();
     $("#currentCity").text(searchItem);
     $("#currentDate").text(currentDate);
-    fetchCoord(searchItem);
+    
     
 }
 function persistHistory() {
