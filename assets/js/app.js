@@ -26,11 +26,39 @@ function fetchCoord(city) {
             const lon = data[0].lon;
             console.log('lat', data[0].lat);
             console.log('lon', data[0].lon);
+        
+            var city = inputEl.value.trim();
+            $('.currentContainer').show();
+            $("#currentCity").text(city);
+            $("#currentDate").text(currentDate);
 
             fetchWeather(lat, lon);
             fetchForecast(lat, lon);
+
+
+            if (!searchHistoryList.includes(city)) {
+                searchHistoryList.push(city);
+                var btn = document.createElement('button');
+                btn.classList.add('list-group');
+                btn.classList.add('col-12');
+                btn.setAttribute('searched-city', city);
+                btn.textContent = city;
+                $('#searchHistory').append(btn);
+            };
+        
+            localStorage.setItem("city", JSON.stringify(searchHistoryList));
+            console.log(searchHistoryList);
     
         })
+        .catch (function(error) {
+            renderBadCity();
+        })
+};
+function renderBadCity() {
+    var city = inputEl.value.trim();
+    $('.currentContainer').show();
+    $("#currentCity").text("Could not find " + city);
+    $("#currentDate").text(currentDate);
 };
 function fetchWeather(lat, lon) {
     let apiUrl = `${rootApiUrl}/data/2.5/onecall?lat=${lat}&lon=${lon}&units=imperial&appid=${myApiKey}`;
@@ -46,14 +74,14 @@ function fetchWeather(lat, lon) {
             const uvi = data.current.uvi;
             const iconCode = data.current.weather[0].icon;
             const iconUrl = `http://openweathermap.org/img/w/${iconCode}.png`;
-
+            console.log("data", data);
             // checks uvi and sets a bg color to indicate favorable,moderate or severe
-            if (uvi.value < 3) {
+            if (uvi <=3 ) {
                 $("#li4").addClass("uvLow");
-            } else if (uvi.value >= 8) {
-                $('#li4').addClass("uvSevere");
+            } else if (uvi >=4 && uvi <8 )  {
+                $('#li4').addClass("uvMod");
             } else {
-                $("#li4").addClass("uvMod");
+                $("#li4").addClass("uvSevere");
             }
             //displays current weather icon, temp, humid, wind, and uvi
             $('#currentIcon').html(`<img src=${iconUrl}>`);
@@ -104,21 +132,21 @@ function fetchForecast(lat, lon) {
 function search() {
     var city = inputEl.value.trim();
     fetchCoord(city);
-    $('.currentContainer').show();
-    $("#currentCity").text(city);
-    $("#currentDate").text(currentDate);
-    if (!searchHistoryList.includes(city)) {
-        searchHistoryList.push(city);
-        var btn = document.createElement('button');
-        btn.classList.add('list-group');
-        btn.classList.add('col-12');
-        btn.setAttribute('searched-city', city);
-        btn.textContent = city;
-        $('#searchHistory').append(btn);
-    };
+    // $('.currentContainer').show();
+    // $("#currentCity").text(city);
+    // $("#currentDate").text(currentDate);
+    // if (!searchHistoryList.includes(city)) {
+    //     searchHistoryList.push(city);
+    //     var btn = document.createElement('button');
+    //     btn.classList.add('list-group');
+    //     btn.classList.add('col-12');
+    //     btn.setAttribute('searched-city', city);
+    //     btn.textContent = city;
+    //     $('#searchHistory').append(btn);
+    // };
 
-    localStorage.setItem("city", JSON.stringify(searchHistoryList));
-    console.log(searchHistoryList);
+    // localStorage.setItem("city", JSON.stringify(searchHistoryList));
+    // console.log(searchHistoryList);
 };
 
 
@@ -128,17 +156,14 @@ function searchAgain(e) {
     var btn = e.target;
     var searchItem = btn.getAttribute("searched-city")
     console.log(searchItem);
-    fetchCoord(searchItem);
-    $(".currentContainer").show();
+      $(".currentContainer").show();
     $("#currentCity").text(searchItem);
     $("#currentDate").text(currentDate);
+    fetchCoord(searchItem);
     
 }
 function persistHistory() {
-    $(".currentContainer").hide();
-    $("#currentCity").text(city);
-    $("#currentDate").text(currentDate);
-   
+       $('.currentContainer').show();
 for(let i=0;i<searchHistoryList.length;i++) {
         var city = searchHistoryList[i];
         var btn = document.createElement('button');
